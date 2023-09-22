@@ -1,0 +1,22 @@
+{
+    "name": "pronotron/art-direction-images",
+	"description": "Create & crop images with defined aspect ratios. Get 'picture' output with source's",
+    "type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "Yunus Bayraktaroglu",
+			"email": "yunus.bayraktaroglu@gmail.com"
+		}
+	],
+    "require": {},
+	"autoload": {
+		"psr-4": {
+			"WPPronotronArtDirectionImages\\": "includes/"
+		}
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"process-timeout": 0
+	}
+}

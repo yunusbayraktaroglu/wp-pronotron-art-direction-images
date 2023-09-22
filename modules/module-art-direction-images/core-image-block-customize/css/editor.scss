@@ -1,0 +1,29 @@
+.block-editor-block-toolbar button[ aria-label="Crop" ]{
+    display: none !important;
+}
+
+.art-direction-image {
+
+	display: flex !important;
+    flex-grow: 1;
+
+	img {
+		max-width: auto;
+		width: 100%;
+	}
+
+}
+
+.wp-pronotron-fluid-image-original {
+
+	height: 100% !important;
+    width: 100% !important;
+    position: absolute !important;
+    left: 0;
+    top: 0;
+
+	& > * {
+		display: none !important;
+	}
+
+}

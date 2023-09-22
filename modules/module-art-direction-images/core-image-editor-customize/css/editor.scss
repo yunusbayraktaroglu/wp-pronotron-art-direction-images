@@ -1,0 +1,15 @@
+.imgedit-label {
+
+	display: flex !important;
+	flex-direction: row;
+
+	img {
+		max-width: 100px;
+	}
+
+	label {
+		display: flex !important;
+		flex-direction: column;
+	}
+	
+}

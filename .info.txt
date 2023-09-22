@@ -1,0 +1,25 @@
+(1) Install lastest wp-env package globally
+	https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/
+	https://github.com/WordPress/gutenberg/blob/trunk/packages/env/README.md#wp-envjson
+
+	npm -g i @wordpress/env
+	wp-env --version
+
+(2) Install lastest wp-scripts package for dev
+	https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/
+	
+	npm install @wordpress/scripts --save-dev
+
+(3) Add .wp-env.json and customize
+(4) Add block.json as { "editorScript": "file:./index.js" } to every module or submodule root to act module as entry point
+
+
+- Default login
+admin
+password
+
+# graphql
+graphql localhosta yüklendikten sonra, wordpress ayarlardan permalinklerin tekrar kaydedilmesi gerekli
+
+# wp-env install-path
+local docker path

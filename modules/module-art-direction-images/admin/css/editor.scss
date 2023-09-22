@@ -1,0 +1,67 @@
+[for*="_size_"] {
+    min-width: 10em;
+    vertical-align: baseline;
+}
+
+fieldset.flex {
+	display: flex;
+	flex-direction: row;
+}
+
+fieldset.flex div + div,
+fieldset .button-add {
+	margin-left: 20px;
+}
+
+input.reset-settings {
+	float: right;
+}
+
+.wp-core-ui .button-remove {
+	background: #cb0000;
+	border-color: #cb0000;
+	color: white;
+    min-height: auto;
+    font-size: 8px;
+    padding: 5px;
+    line-height: 1;
+}
+
+.flex-middle {
+	display: flex;
+	align-items: center;
+
+	& > * + * {
+		margin-left: 10px !important;
+	}
+}
+
+.fieldset-list {
+
+	margin-top: 1rem;
+
+	& > fieldset {
+		background-color: #e5e5e5;
+		border-radius: 10px;
+		padding: 10px;
+		display: flex;
+		align-items: center;
+
+		.button-remove {
+			margin-left: 10px;
+		}
+	}
+	
+	& > fieldset + fieldset {
+		margin-top: 5px;
+	}
+
+}
+
+.ratio-label {
+	min-width: 5em;
+}
+
+.img-size-label {
+	min-width: 10em;
+}

@@ -1,0 +1,72 @@
+# To run this action
+# Go to settings -> actions and in Workflow Permissions section give actions Read and Write permissions.
+# That provides your token with rights to modify your repo.
+
+name: Build Pronotron / Art Direction Images Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  PLUGIN_SLUG: wp-pronotron-art-direction-images
+
+jobs:
+  build:
+    name: Build process
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build plugin modules
+      run: npm run build
+
+    - name: Setup PHP and Composer
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4
+        tools: composer:v2
+
+    - name: Install Composer dependencies
+      run: composer install
+
+    - name: Check linux Zip-Unzip packages
+      run: zip --version
+
+    - name: Create plugin build folder and move plugin content into it
+      run: |
+        mkdir $PLUGIN_SLUG
+        ls
+        sudo mv $PLUGIN_SLUG.php includes build vendor readme.txt README.md $PLUGIN_SLUG
+
+    - name: Create zip
+      run: zip -r $PLUGIN_SLUG.zip $PLUGIN_SLUG
+
+    # Release
+    - name: Create Github release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload release to Github Releases
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.PLUGIN_SLUG }}.zip
+          asset_name: ${{ env.PLUGIN_SLUG }}-${{ github.ref_name }}.zip
+          asset_content_type: application/zip

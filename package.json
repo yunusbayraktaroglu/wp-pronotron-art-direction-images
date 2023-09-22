@@ -1,0 +1,36 @@
+{
+	"name": "wp-pronotron-art-direction-images",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Create & crop images with defined aspect ratios. Get 'picture' output with source's.",
+	"author": "Yunus Bayraktaroglu",
+	"license": "CC0 1.0 Universal",
+	"keywords": [
+		"art-direction-images",
+		"media"
+	],
+	"homepage": "https://pronotron.com",
+	"repository": "https://github.com/yunusbayraktaroglu/wp-pronotron-art-direction-images",
+	"bugs": "https://github.com/yunusbayraktaroglu/wp-pronotron-art-direction-images/issues",
+	"devDependencies": {
+		"@wordpress/scripts": "^26.12.0"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "wp-scripts start --webpack-src-dir=modules --webpack-copy-php",
+		"build": "wp-scripts build --webpack-src-dir=modules --webpack-copy-php",
+		"composer": "wp-env run cli --env-cwd=wp-content/plugins/wp-pronotron-art-direction-images composer",
+		"composer:dump": "npm run composer dumpautoload -o",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"test:e2e": "wp-scripts test-e2e",
+		"test:unit": "wp-scripts test-unit-js"
+	}
+}
